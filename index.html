@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IIQE 模擬試題練習</title>
+    <title>IIQE 模擬試題練習系統</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="form-group">
-                <label for="question-count">練習題數：</label>
+                <label for="question-count">指定練習題數：</label>
                 <input type="number" id="question-count" value="30" min="1" max="100">
             </div>
             <button id="start-btn" class="primary-btn">開始練習</button>
@@ -43,6 +43,7 @@
                 <span id="chapter-badge" class="badge">第一章</span>
             </div>
             <h2 id="question-text">載入題目中...</h2>
+            
             <div id="options-container" class="options-grid">
                 </div>
             
@@ -59,13 +60,4 @@
                 <h2 id="final-score">0%</h2>
                 <p id="score-details">答對 0 題，共 0 題</p>
             </div>
-            <div id="review-container" class="review-list">
-                </div>
-            <button id="restart-btn" class="primary-btn">返回首頁</button>
-        </div>
-    </div>
-    
-    <script src="questions.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+            <div id="review-container" class="review-
