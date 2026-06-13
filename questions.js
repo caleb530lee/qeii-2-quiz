@@ -1,5 +1,7 @@
-const questions = [
-    {
+const quizBanks = {
+    // 卷二：一般保險
+    "paper2": [
+        {
         "chapter": 1,
         "question": "強制汽車保險要求在以下那個情況是可以例外？",
         "options": [
@@ -2585,7 +2587,7 @@ const questions = [
         "answer": 3
     },
     {
-        "chapter": 1,
+        "chapter": 2,
         "question": "在核保的過程，人壽保險及一般保險的基本分別在於：",
         "options": [
             "人壽保險核保屬於「一次過」事件",
@@ -5147,4 +5149,20 @@ const questions = [
         ],
         "answer": 3
     }
-];
+],
+    // 卷五：投資相連長期保險 (Add your newly extracted questions here)
+    "paper5": [
+        {
+            "chapter": 1,
+            "question": "這是卷五的範例題目一？",
+            "options": [
+                "選項 A",
+                "選項 B",
+                "選項 C",
+                "選項 D"
+            ],
+            "answer": 0
+        }
+        // ... paste your Paper 5 questions here
+    ]
+};
