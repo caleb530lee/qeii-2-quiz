@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IIQE 卷二 一般保險 模擬試題</title>
+    <title>IIQE 模擬試題練習</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div id="setup-screen" class="screen active">
-            <h1>IIQE 卷二 模擬試題</h1>
+            <h1>IIQE 模擬試題練習</h1>
+            
+            <div class="form-group">
+                <label for="paper-select">選擇試卷：</label>
+                <select id="paper-select">
+                    <option value="paper2">卷二：一般保險</option>
+                    <option value="paper5">卷五：投資相連長期保險</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="chapter-select">選擇章節：</label>
                 <select id="chapter-select">
                     <option value="all">隨機抽取 (所有章節)</option>
-                    <option value="1">第一章：保險產品</option>
-                    <option value="2">第二章：核保及保單措詞</option>
-                    <option value="3">第三章：理賠</option>
-                    <option value="4">第四章：客戶服務</option>
+                    <option value="1">第一章</option>
+                    <option value="2">第二章</option>
+                    <option value="3">第三章</option>
+                    <option value="4">第四章</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="question-count">練習題數：</label>
                 <input type="number" id="question-count" value="30" min="1" max="100">
@@ -35,18 +45,23 @@
             <h2 id="question-text">載入題目中...</h2>
             <div id="options-container" class="options-grid">
                 </div>
-            <button id="next-btn" class="primary-btn hidden">下一題</button>
+            
+            <div class="quiz-controls">
+                <button id="prev-btn" class="secondary-btn hidden">上一題</button>
+                <button id="next-btn" class="primary-btn hidden">下一題</button>
+                <button id="end-btn" class="danger-btn">結束測驗</button>
+            </div>
         </div>
 
         <div id="result-screen" class="screen">
-            <h1>練習完成！</h1>
+            <h1>練習總結</h1>
             <div class="score-card">
                 <h2 id="final-score">0%</h2>
                 <p id="score-details">答對 0 題，共 0 題</p>
             </div>
             <div id="review-container" class="review-list">
                 </div>
-            <button id="restart-btn" class="primary-btn">重新開始</button>
+            <button id="restart-btn" class="primary-btn">返回首頁</button>
         </div>
     </div>
     
