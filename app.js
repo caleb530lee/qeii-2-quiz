@@ -33,21 +33,38 @@ function switchScreen(screenName) {
 }
 
 function startQuiz() {
+    // 檢查全域變數是否正常
+    if (typeof quizBanks === 'undefined') {
+        console.error("錯誤：questions.js 沒有成功載入，或 quizBanks 變數不存在！");
+        alert("系統錯誤：找不到題庫資料，請檢查 questions.js 是否正確。");
+        return;
+    }
+
     const selectedPaper = els.paperSelect.value;
     const chapter = els.chapterSelect.value;
     let count = parseInt(els.questionCount.value) || 30;
 
-    // 從 questions.js 中獲取對應試卷題庫
-    const activeBank = quizBanks[selectedPaper] || [];
+    console.log("==== 開始抽題測試 ====");
+    console.log("當前選擇的試卷代碼 (Value):", selectedPaper);
+    console.log("當前選擇的章節:", chapter);
 
-    // 過濾章節
+    const activeBank = quizBanks[selectedPaper];
+    if (!activeBank) {
+        console.error(`錯誤：在 quizBanks 中找不到對應 '${selectedPaper}' 的 Key！請檢查 questions.js`);
+        alert("找不到該試卷的題庫，請檢查資料設定。");
+        return;
+    }
+    console.log("該試卷的原始總題數:", activeBank.length);
+
     let filteredQuestions = chapter === 'all' 
         ? [...activeBank] 
         : activeBank.filter(q => q.chapter == chapter);
+    
+    console.log("經章節篩選後的題数:", filteredQuestions.length);
 
-    // 隨機打亂並截取指定題數
     filteredQuestions.sort(() => Math.random() - 0.5);
     currentQuizData = filteredQuestions.slice(0, count);
+    console.log("最終抽取準備練習的題數:", currentQuizData.length);
 
     if (currentQuizData.length === 0) {
         alert("該試卷或章節目前沒有題目資料！");
@@ -58,6 +75,7 @@ function startQuiz() {
     answersState = new Array(currentQuizData.length).fill(null);
     switchScreen('quiz');
     loadQuestion();
+    console.log("==== 已成功執行跳轉 ====");
 }
 
 function loadQuestion() {
